@@ -38,13 +38,6 @@ pip install -r requirements.txt
 streamlit run streamlit_app.py
 ```
 
-### Deploy to Streamlit Cloud
-
-1. Push this repository to GitHub
-2. Go to [share.streamlit.io](https://share.streamlit.io)
-3. Connect your GitHub repository
-4. Select `streamlit_app.py` as the main file
-5. Deploy
 
 ### Database Configuration
 
