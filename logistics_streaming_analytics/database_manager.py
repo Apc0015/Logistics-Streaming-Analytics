@@ -1,19 +1,29 @@
+import os
 import psycopg2
 import pandas as pd
 import streamlit as st
 import logging
+from pathlib import Path
+from dotenv import load_dotenv
+
+# Load .env if present
+env_path = Path(__file__).parent.parent / ".env"
+if env_path.exists():
+    load_dotenv(env_path)
+else:
+    load_dotenv()
 
 class DatabaseManager:
     """Database connection and query management for Azure PostgreSQL"""
     
     def __init__(self):
         self.db_config = {
-            "host": "bigdata15.postgres.database.azure.com",
-            "database": "postgres",
-            "user": "Apc",
-            "password": "Azure@@0099",
-            "port": "5432",
-            "sslmode": "require"
+            "host": os.getenv("AZURE_POSTGRES_HOST", "bigdata15.postgres.database.azure.com"),
+            "database": os.getenv("AZURE_POSTGRES_DB", "postgres"),
+            "user": os.getenv("AZURE_POSTGRES_USER", "Apc"),
+            "password": os.getenv("AZURE_POSTGRES_PASSWORD", ""),
+            "port": os.getenv("AZURE_POSTGRES_PORT", "5432"),
+            "sslmode": os.getenv("AZURE_POSTGRES_SSLMODE", "require")
         }
         
         # Setup logging

@@ -88,11 +88,6 @@ data/*.xlsx
 checkpoints/
 user_sessions/
 
-# Test files
-test_*.py
-*_test.py
-tests/
-
 # Coverage reports
 htmlcov/
 .coverage
